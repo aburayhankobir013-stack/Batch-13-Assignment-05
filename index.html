@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tailwindcss CDN link -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <title>GITHUB-ISSUES-TRACKER</title>
+</head>
+<body>
+  <!-- Main container -->
+   <div class="container mx-auto min-h-screen flex justify-center items-center">
+    <!-- Main form container -->
+     <div class="max-w-xs w-full p-2 flex flex-col items-center gap-2 rounded-md shadow-[0_0_0.625rem_rgba(0,0,0,0.5)]">
+      <!-- Logo and about container -->
+       <div class="flex flex-col items-center gap-2">
+        <!-- Logo container -->
+         <figure class="size-12">
+          <img src="./assets/github-logo.png" alt="Github logo" class="size-full">
+         </figure>
+         <!-- About container -->
+          <div class="flex flex-col items-center">
+            <!-- About heading -->
+             <h1 class="text-xl font-semibold tracking-tighter">GitHub Issues Tracker</h1>
+             <!-- About paragraph -->
+             <p class="text-gray-500 font-semibold tracking-tighter">Sign in manage your issues</p>
+          </div>
+       </div>
+       <!-- Form container -->
+        <form action="#" class="flex flex-col items-center gap-2 w-full">
+          <!-- Username container -->
+           <div class="flex flex-col gap-1 w-full">
+            <label for="username" class="font-semibold">Username</label>
+            <input type="text" name="username" id="username" placeholder="Enter Username" class="border border-gray-400 font-semibold rounded-md p-1">
+           </div>
+           <!-- Password container -->
+            <div class="flex flex-col gap-1 w-full">
+              <label for="password" class="font-semibold">Password</label>
+              <input type="password" name="password" id="password" placeholder="Enter Password" class="border border-gray-400 font-semibold rounded-md p-1">
+            </div>
+            <!-- Sign in button container -->
+             <div class="w-full">
+              <input type="button" value="Sign In" class="text-center w-full bg-violet-900 text-white font-semibold rounded-md p-1 hover:bg-violet-950 cursor-pointer">
+             </div>
+        </form>
+     </div>
+   </div>
+</body>
+</html>
