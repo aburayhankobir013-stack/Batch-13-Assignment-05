@@ -8,9 +8,9 @@
 </head>
 <body class="font-sans">
   <!-- Main container -->
-   <div class="container mx-auto border border-red-500 min-h-screen">
+   <div class="container mx-auto border border-red-500 min-h-screen p-2">
     <!-- Header -->
-    <header class="border border-red-500 flex flex-col items-center gap-2 sm:flex-row sm:justify-between p-2">
+    <header class="flex flex-col items-center gap-2 sm:flex-row sm:justify-between p-2 rounded-md shadow-[0_0_0.625rem_rgba(0,0,0,0.5)]">
       <!-- Logo -->
        <div class="flex flex-col gap-2 items-center sm:flex-row">
         <figure class="size-12 sm:size-6">
@@ -30,7 +30,23 @@
        </form>
     </header>
     <!-- Navigator container -->
-     
+     <div class="mt-5 flex justify-center p-2 sm:justify-start rounded-md shadow-[0_0_0.625rem_rgba(0,0,0,0.5)]">
+      <!-- All navigators container -->
+       <div class="flex gap-2">
+        <div>
+        <button class="border border-gray-300 w-20 cursor-pointer py-1 rounded-sm font-semibold button">All</button>
+       </div>
+       <div>
+        <button class="border border-gray-300 w-20 cursor-pointer py-1 rounded-sm font-semibold button">Open</button>
+       </div>
+       <div>
+        <button class="border border-gray-300 w-20 cursor-pointer py-1 rounded-sm font-semibold button">Closed</button>
+       </div>
+       </div>
+     </div>
+     <!--  -->
    </div>
+   <!-- Linked with javascript -->
+    <script src="../scripts/app.js"></script>
 </body>
 </html>
