@@ -21,7 +21,7 @@ form.addEventListener(
         const collectedPassowrd=password.value.replace(/\s/g,"");
         if(isUsernameMatch(storedUsername,collectedUsername)){
           if(isPasswordMatch(storedPassword,collectedPassowrd)){
-            console.log('I am ready to navigate the page!');
+            window.location.href="./pages/main.html";
           }else{
             alert("Invalid password!");
           }
