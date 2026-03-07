@@ -7,7 +7,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <title>GITHUB-ISSUES-TRACKER</title>
 </head>
-<body>
+<body class="font-sans">
   <!-- Main container -->
    <div class="container mx-auto min-h-screen flex justify-center items-center">
     <!-- Main form container -->
@@ -27,7 +27,7 @@
           </div>
        </div>
        <!-- Form container -->
-        <form action="#" class="flex flex-col items-center gap-2 w-full">
+        <form action="#" class="flex flex-col items-center gap-2 w-full" id="form">
           <!-- Username container -->
            <div class="flex flex-col gap-1 w-full">
             <label for="username" class="font-semibold">Username</label>
@@ -40,10 +40,12 @@
             </div>
             <!-- Sign in button container -->
              <div class="w-full">
-              <input type="button" value="Sign In" class="text-center w-full bg-violet-900 text-white font-semibold rounded-md p-1 hover:bg-violet-950 cursor-pointer">
+              <input type="submit" value="Sign In" class="text-center w-full bg-violet-900 text-white font-semibold rounded-md p-1 hover:bg-violet-950 cursor-pointer">
              </div>
         </form>
      </div>
    </div>
+   <!-- Linked with javascript -->
+    <script src="./scripts/index.js"></script>
 </body>
 </html>
