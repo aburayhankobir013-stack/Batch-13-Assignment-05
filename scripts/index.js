@@ -9,58 +9,30 @@ const storedPassword = "admin123";
 let collectedUsername;
 let collectedPassowrd;
 
-// Add event listener for username field validation
-username.addEventListener(
-  "blur",
-  function () {
-    const useableUsername = username.value.replace(/\s/g, "");
-    if (isUsernameValid(useableUsername)) {
-      collectedUsername = useableUsername;
-    } else {
-      alert("Enter the valid username!");
-    }
-  },
-  false,
-);
-
-// Add event listener for password field validation
-password.addEventListener(
-  "blur",
-  function () {
-    const useablePassword = password.value.replace(/\s/g, "");
-    if (isPasswordValid(useablePassword)) {
-      collectedPassowrd = useablePassword;
-    } else {
-      alert("You must entered 8 charectered passwrod!");
-    }
-  },
-  false,
-);
 
 // Add event listener on form submit
 form.addEventListener(
   "submit",
   function (event) {
     event.preventDefault();
-    if (username.value.length === 0 && password.value.length === 0) {
-      alert("You must entered username and password!");
-    } else if (username.value.length === 0) {
-      alert("You must entered the username!");
-    } else if (password.value.length === 0) {
-      alert("You must entered password!");
-    } else {
-      if (isUsernameMatch(storedUsername, collectedUsername)) {
-        if (isPasswordMatch(storedPassword, collectedPassowrd)) {
-          // Functionality for navigate the page
-          console.log("I am ready to navigate the page!");
-        } else {
-          alert("Enter the correct password!");
-          password.value = "";
+    if(isUsernameValid(username.value)){
+      const collectedUsername=username.value.replace(/\s/g,"");
+      if(isPasswordValid(password.value)){
+        const collectedPassowrd=password.value.replace(/\s/g,"");
+        if(isUsernameMatch(storedUsername,collectedUsername)){
+          if(isPasswordMatch(storedPassword,collectedPassowrd)){
+            console.log('I am ready to navigate the page!');
+          }else{
+            alert("Invalid password!");
+          }
+        }else{
+          alert("Invalid username!");
         }
-      } else {
-        alert("Enter the correct username!");
-        username.value = "";
+      }else{
+        alert("You must entered a valid password!");
       }
+    }else{
+      alert("You must entered a valid username!");
     }
   },
   false,
