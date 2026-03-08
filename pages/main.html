@@ -1,71 +1,132 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <title>GITHUB-ISSUES-TRACKER</title>
-</head>
-<body class="font-sans">
-  <!-- Main container -->
-   <div class="container mx-auto border border-red-500 min-h-screen p-2">
-    <!-- Header -->
-    <header class="flex flex-col items-center gap-2 sm:flex-row sm:justify-between p-2 rounded-md shadow-[0_0_0.625rem_rgba(0,0,0,0.5)]">
-      <!-- Logo -->
-       <div class="flex flex-col gap-2 items-center sm:flex-row">
-        <figure class="size-12 sm:size-6">
-          <img src="../assets/github-logo.png" alt="Github logo" class="size-full">
-        </figure>
-        <h1 class="text-xl font-bold tracking-tighter">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="../styles/responsive.css" />
+    <title>GITHUB-ISSUES-TRACKER</title>
+  </head>
+  <body class="font-sans">
+    <!-- Main container -->
+    <div class="max-w-[1280px] mx-auto border border-red-500 min-h-screen p-2">
+      <!-- Header -->
+      <header
+        class="flex flex-col items-center gap-2 sm:flex-row sm:justify-between p-2 rounded-md shadow-[0_0_0.625rem_rgba(0,0,0,0.5)]"
+      >
+        <!-- Logo -->
+        <div class="flex flex-col gap-2 items-center sm:flex-row">
+          <figure class="size-12 sm:size-6">
+            <img
+              src="../assets/github-logo.png"
+              alt="Github logo"
+              class="size-full"
+            />
+          </figure>
+          <h1 class="text-xl font-bold tracking-tighter">
             Github Issues Tracker
           </h1>
-       </div>
-       <form action="#" class="flex gap-2 items-center">
-        <div>
-          <input type="text" name="" id="search" placeholder="Search Issues..." class="border border-gray-400 p-1 font-semibold rounded-sm">
         </div>
-        <div>
-          <input type="submit" value="+New Issue" class="bg-violet-900 text-white font-semibold p-1 rounded-sm cursor-pointer hover:bg-violet-950">
+        <form action="#" class="flex gap-2 items-center">
+          <div>
+            <input
+              type="text"
+              name=""
+              id="search"
+              placeholder="Search Issues..."
+              class="border border-gray-400 p-1 font-semibold rounded-sm"
+            />
+          </div>
+          <div>
+            <input
+              type="submit"
+              value="+New Issue"
+              class="bg-violet-900 text-white font-semibold p-1 rounded-sm cursor-pointer hover:bg-violet-950"
+            />
+          </div>
+        </form>
+      </header>
+      <!-- Navigator container -->
+      <div
+        class="mt-5 flex justify-center p-2 sm:justify-start rounded-md shadow-[0_0_0.625rem_rgba(0,0,0,0.5)]"
+      >
+        <!-- All navigators container -->
+        <div class="flex gap-2">
+          <div>
+            <button
+              class="border border-gray-300 w-20 cursor-pointer py-1 rounded-sm font-semibold button"
+            >
+              All
+            </button>
+          </div>
+          <div>
+            <button
+              class="border border-gray-300 w-20 cursor-pointer py-1 rounded-sm font-semibold button"
+            >
+              Open
+            </button>
+          </div>
+          <div>
+            <button
+              class="border border-gray-300 w-20 cursor-pointer py-1 rounded-sm font-semibold button"
+            >
+              Closed
+            </button>
+          </div>
         </div>
-       </form>
-    </header>
-    <!-- Navigator container -->
-     <div class="mt-5 flex justify-center p-2 sm:justify-start rounded-md shadow-[0_0_0.625rem_rgba(0,0,0,0.5)]">
-      <!-- All navigators container -->
-       <div class="flex gap-2">
-        <div>
-        <button class="border border-gray-300 w-20 cursor-pointer py-1 rounded-sm font-semibold button">All</button>
-       </div>
-       <div>
-        <button class="border border-gray-300 w-20 cursor-pointer py-1 rounded-sm font-semibold button">Open</button>
-       </div>
-       <div>
-        <button class="border border-gray-300 w-20 cursor-pointer py-1 rounded-sm font-semibold button">Closed</button>
-       </div>
-       </div>
-     </div>
-     <!-- Counter container -->
-      <div class="mt-5 p-2 rounded-md shadow-[0_0_0.625rem_rgba(0,0,0,0.5)] flex justify-between">
+      </div>
+      <!-- Counter container -->
+      <div
+        class="mt-5 p-2 rounded-md shadow-[0_0_0.625rem_rgba(0,0,0,0.5)] flex justify-between"
+      >
         <!-- Image container -->
         <div class="flex flex-col items-center gap-2 sm:flex-row">
           <figure>
-          <img src="../assets/Aperture.png" alt="Aperture image">
-        </figure>
-        <!-- Text container -->
-         <div class="flex flex-col items-center sm:items-start">
-          <h1 class="font-bold text-xl"><span>50 </span>Issues</h1>
-          <p class="font-semibold text-gray-500">Track and manage your project issues</p>
-         </div>
+            <img src="../assets/Aperture.png" alt="Aperture image" />
+          </figure>
+          <!-- Text container -->
+          <div class="flex flex-col items-center sm:items-start">
+            <h1 class="font-bold text-xl">
+              <span id="issue-counter"> </span>Issues
+            </h1>
+            <p class="font-semibold text-gray-500">
+              Track and manage your project issues
+            </p>
+          </div>
         </div>
         <div class="flex gap-2 flex-col justify-center sm:flex-row">
-          <div class="flex items-center gap-2"><div class="size-2 rounded-full bg-green-700"></div><p class="font-semibold">Open</p></div>
-          <div class="flex items-center gap-2"><div class="size-2 rounded-full bg-violet-700"></div><p class="font-semibold">Closed</p></div>
+          <div class="flex items-center gap-2">
+            <div class="size-2 rounded-full bg-green-700"></div>
+            <p class="font-semibold">Open</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="size-2 rounded-full bg-violet-700"></div>
+            <p class="font-semibold">Closed</p>
+          </div>
         </div>
       </div>
       <!-- Card container -->
-       
-   </div>
-   <!-- Linked with javascript -->
+      <div
+        class="h-screen mt-1 rounded-md shadow-[0_0_0.625rem_rgba(0,0,0,0.5)] p-2 overflow-y-auto gap-2 relative"
+        id="card-container"
+      >
+        <!-- Loader -->
+        <div class="absolute left-1/2 -translate-x-1/2" id="loader">
+          <span class="loading loading-bars loading-xs"></span>
+          <span class="loading loading-bars loading-sm"></span>
+          <span class="loading loading-bars loading-md"></span>
+          <span class="loading loading-bars loading-lg"></span>
+          <span class="loading loading-bars loading-xl"></span>
+        </div>
+        <!-- Javascript will push the card -->
+      </div>
+    </div>
+    <!-- Linked with javascript -->
     <script src="../scripts/app.js"></script>
-</body>
+  </body>
 </html>

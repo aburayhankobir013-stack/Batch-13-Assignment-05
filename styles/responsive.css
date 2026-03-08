@@ -1,0 +1,28 @@
+#card-container{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+}
+
+/* Max width 1024px for medium devices */
+@media screen and (max-width:1024px){
+  #card-container{
+    grid-template-columns: repeat(3,1fr);
+  }
+}
+
+/* Max width 680px for small devices */
+@media screen and (max-width:680px){
+  #card-container{
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+/* Max width 320px for extra small devices*/
+@media screen and (max-width:576px) {
+  #card-container{
+    grid-template-columns: repeat(1,1fr);
+  }
+}
+
+
+
