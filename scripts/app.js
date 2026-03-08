@@ -10,7 +10,7 @@ console.log(loader);
 
 
 const allDataURL=`https://phi-lab-server.vercel.app/api/v1/lab/issues`;
-let allData=[]
+let allData=[];
 let openData=[];
 let closedData=[];
 
@@ -53,25 +53,20 @@ function randerCard(cards){
            <p class="font-semibold text-gray-500 line-clamp-2">${card.description}</p>
            <!-- Batch container -->
             <div class="flex gap-2">
-              <div class="bg-red-300 border border-red-900 w-fit p-1 rounded-sm text-red-700 shadow-md font-semibold">
-                <i class="fa-solid fa-bug"></i>
-                <span>BUG</span>
-              </div>
-              <div class="bg-yellow-200 border border-yellow-900 w-fit p-1 rounded-sm text-yellow-700 shadow-md font-semibold">
-                <i class="fa-solid fa-handshake-angle"></i>
-                <span>HELP WANTED</span>
-              </div>
-              <div class="bg-green-200 border border-green-900 w-fit p-1 rounded-sm text-green-700 shadow-md font-semibold hidden">
-                <i class="fa-solid fa-wand-magic-sparkles"></i>
-                <span>ENHANCEMENT</span>
-              </div>
+              ${addBatch(card.labels)}
             </div>
             <!-- Horizontal line -->
              <hr class="border-none h-[1.5px] bg-gray-500">
              <!-- Author -->
-             <div class="flex flex-col gap-1 font-semibold text-gray-500">
-              <p>#1${card.author}</p>
-              <p>${new Date(card.updatedAt).toLocaleDateString()}</p>
+             <div class="flex justify-between font-semibold text-gray-500">
+              <div class="flex flex-col gap-1 text-left">
+                <p>#${card.id} by ${card.author}</p>
+                <p>Assignee: ${card.assignee===''? 'No data': card.assignee}</p>
+              </div>
+              <div class="flex flex-col gap-1 text-right">
+                <p>${new Date(card.createdAt).toLocaleDateString()}</p>
+                <p>Updated: ${new Date(card.updatedAt).toLocaleDateString()}</p>
+              </div>
              </div>
          </div>
     `;
@@ -79,6 +74,13 @@ function randerCard(cards){
   });
 }
 
+function addBatch(labels){
+  let batch='';
+  labels.forEach((label)=>{
+    batch+=`<div class="px-2 py-1 bg-yellow-200 text-yellow-700 font-semibold rounded-sm shadow-sm line-clamp-1">${label.toUpperCase()}</div>`;
+  });
+  return batch;
+}
 
 
 function changePriority(priority){
