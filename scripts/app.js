@@ -5,7 +5,10 @@ const closeBtn=buttons[2];
 const loader=document.getElementById('loader');
 const cardContainer=document.getElementById('card-container');
 const issueCounter=document.getElementById('issue-counter');
-console.log(loader);
+const form=document.getElementById('form');
+const searchField=document.getElementById('search');
+const searchBtn=document.getElementById('submitBtn');
+
 
 
 
@@ -13,6 +16,7 @@ const allDataURL=`https://phi-lab-server.vercel.app/api/v1/lab/issues`;
 let allData=[];
 let openData=[];
 let closedData=[];
+let searchData=[];
 
 
 async function getAPIData(url){
@@ -22,7 +26,6 @@ async function getAPIData(url){
   if(response.ok){
     const useableData=await response.json();
     allData=useableData.data;
-    console.log(allData);
     getOpendData(useableData.data);
     getClosedData(useableData.data);
     issueCounter.textContent=`${allData.length} `;
@@ -34,6 +37,42 @@ async function getAPIData(url){
 
 getAPIData(allDataURL);
 
+async function getSearchAPIData(url){
+  if(url){
+    loader.classList.remove('hidden');
+    loader.classList.add('block');
+    const response=await fetch(url);
+    if(response.ok){
+      const useableData=await response.json();
+      if(useableData.data.length!==0){
+        searchData=useableData.data;
+        issueCounter.textContent=`${searchData.length} `;
+        randerCard(searchData);
+        searchField.value='';
+      }else{
+        alert('Invalid keyword!');
+        searchField.value='';
+      }
+    }
+  }
+  loader.classList.remove('block');
+  loader.classList.add('hidden');
+}
+
+function getSearchURL(){
+  if(searchField.value.length!==0){
+    return `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchField.value}`;
+  }else{
+    alert('You must entered the valid keyword!');
+  }
+}
+
+form.addEventListener('submit',(event)=>{
+  event.preventDefault();
+  getSearchAPIData(getSearchURL());
+},false);
+
+
 function randerCard(cards){
   cardContainer.innerHTML='';
   cardContainer.appendChild(loader);
@@ -41,7 +80,7 @@ function randerCard(cards){
     const cardWrapper=document.createElement('div');
     cardWrapper.classList.add('size-full');
     cardWrapper.innerHTML=`
-    <div class="p-2 flex flex-col gap-2 rounded-md shadow-[0_0_0.625rem_rgba(0,0,0,0.5)] border-t-4 ${changeBorderColor(card.status)} size-full">
+    <div class="p-2 flex flex-col gap-2 rounded-md shadow-[0_0_0.625rem_rgba(0,0,0,0.5)] border-t-4 ${changeBorderColor(card.status)} h-72">
           <!-- Image and priority -->
            <div class="flex items-center justify-between">
             ${changeImage(card.status)}
@@ -108,8 +147,6 @@ function changeImage(status){
     return '<figure><img src="../assets/Closed- Status .png" alt="Close status image"></figure>'
   }
 }
-
-console.log(changeBorderColor('open'));
 
 allBtn.addEventListener('click',()=>{
   getAPIData();
