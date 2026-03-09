@@ -28,6 +28,8 @@ async function getAPIData(url){
   loader.classList.remove('hidden');
   loader.classList.add('block');
   const response=await fetch(url);
+  loader.classList.remove('block');
+  loader.classList.add('hidden');
   if(response.ok){
     const useableData=await response.json();
     allData=useableData.data;
@@ -36,8 +38,6 @@ async function getAPIData(url){
     issueCounter.textContent=`${allData.length} `;
     randerCard(allData);
   }
-  loader.classList.remove('block');
-  loader.classList.add('hidden');
 }
 getAPIData(allDataURL);
 
@@ -47,6 +47,8 @@ async function getSearchAPIData(url){
     loader.classList.remove('hidden');
     loader.classList.add('block');
     const response=await fetch(url);
+    loader.classList.remove('block');
+    loader.classList.add('hidden');
     if(response.ok){
       const useableData=await response.json();
       if(useableData.data.length!==0){
@@ -60,8 +62,6 @@ async function getSearchAPIData(url){
       }
     }
   }
-  loader.classList.remove('block');
-  loader.classList.add('hidden');
 }
 
 // Function for getting search URL

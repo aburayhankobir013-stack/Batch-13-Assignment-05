@@ -1,129 +1,91 @@
-# 🌟 Welcome To (সহজ সরল সিম্পল) Assignment - 5
+Question=>(01):
+What is the difference between var, let, and const?
+Answer:
+1. var
+var is the old way fo declaring variables in JavaScript.
 
-# **📅 Deadline For 60 marks:** 9th March, 2026 (11:59 pm ⏱️)  
-#  📅 No Deadline For 50 marks  
-# **📅 Deadline For 30 marks:** Any time after 9th March.
+(01)=>Function scoped(Accessible only inside the function whereit is declared).
+(02)=>Can be re-declared(The samw variable name can be declared again).
+(03)=>Can be reassigned(It's value can be changed).
+(04)=>Hoisted(The declaration moves to the top of the scope during execution).
 
----
+2.let
+let was introduced in ES6 and is used to declare variables with blick scrope.
 
-# Assignment-05: GitHub Issues Tracker
+(01)=>Block scoped(Limited to the {} block where it is defined).
+(02)=>Cannot be re-declared in the same scope.
+(03)=>Can be reassigned.
+(04)=>Hoisted but not initialized before declaration(Temporal Dead Zone).
 
+3.const
+const is used to declare constant variables whose values cannot be changed.
 
-### **API Endpoints:**
-###  **All Issues:** 
-  - https://phi-lab-server.vercel.app/api/v1/lab/issues
+(01)=>Block scoped.
+(02)=>Cannot be re-declared.
+(03)=>Cannot be reassigned.
+(04)=>Must be initialized at the time of declaration.
 
+----------------------------------------------------------
 
-###  **Single Issue:**
-   - https://phi-lab-server.vercel.app/api/v1/lab/issue/{id}
+Question=>(02):
+What is the spread operator (...)?
+Answer:
+The spread operator is a feature introduced in ES6 that allows an iteratble object such as an array or object to be expanded into individual elements.
 
-   - Example: https://phi-lab-server.vercel.app/api/v1/lab/issue/33
+Additional Inforamtion:
+(01)=>Expands elements of an array or object.
+(02)=>Makes copying arrays or objects easier.
+(03)=>Helps marge arrays or objects.
+(04)=>Can be used when passing arguments to functions.
 
+----------------------------------------------------------
 
-###  **Search Issue:** https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q={searchText}
+Question=>(03):
+What is the difference between map(), filter(), and forEach()?
+Answer:
+1. map()
+map() is used to create a new array by applying a function to each element of the original array.
 
-   - Example:  https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=notifications
+(01)=>Returns a new array.
+(02)=>The length of the new array is the same as the original array.
+(03)=>The original array remains unchanged.
 
+2.filter()
+filter() is used to create a new array containing only the elements that satisfy a specific condition.
 
----
+(01)=>Returns a new array.
+(02)=>The new array may have fewer elements that the original.
+(03)=>The original array remeains unchanged.
 
-## 📝 Main Requirements
+3. forEach()
+forEach() is used to execute a function for each element of an array.
 
-## 🎨 Design Part
+(01)=>Does not return a new array.
+(02)=>Used minly for performing actions such as printing values.
+(03)=>It does not modify the original array unless done manually.
 
-## Login Page
-- Create a login page containing a logo, title, and sub-title
-- Below that, there will be 2 inputs, a sign-in button, and a demo credential to sign in. Follow the Figma for this page 
-- Styled as per Figma
+----------------------------------------------------------
 
-## Main Page: 
+Question(04)=>
+What is an arrow function?
+Answer:
+An arrow function is a shorter and more modern way to write functions in JavaScript. It makes the code more concise and easier to read.
 
-### Navbar: 
+Additional Information:
+(01)=>Provides shorter syntax for writing functions.
+(02)=>Does not have its own this keyword(Inherits this from the surrounding scope).
 
-- Navbar with website logo/name on the left
-- Search input and button on the right
+--------------------------------------------------------
 
-### Tab Section like Figma: 
+Question=>(05):
+What are template literals?
+Answer:
+Template literals ae a feature introduced in ES6 that allow developers to create strings more easily and flexible. They use backticks (` `) instead of single(' ') or double (" ") quotes. Template literals allow embedding variables and expressions directly inside a string.
 
-- 3 tab ( All, Open, Closed) at the top of this section.(**All**, **Open**, **Closed**)
-
-- Below the tab, there will be an icon, the issue count, some text on the left, and an open and closed marker on the right
-
-- Responsiveness: The website should be responsive for mobile devices. It is totally up to you. 
-
-
---- 
-
-
-## ⚙️ Functionalities
-- In login page, there will be default admin credentials (username, password). You need to sign in using these credentials.
-
-- Load all issues and display as per Figma
-
-- On clicking on an open or closed tab, it will load the issues data of the related tab and show it in a display-like card in a 4-column layout like Figma. By default, it will show all data 
-
-- Each card shows:
-  - Title
-  - Description
-  - Status
-  - Category
-  - Author
-  - Priority
-  - Label
-  - CreatedAt
-- Clicking on a tree name in a card will open a modal and show all the information about that Issue. 
-
-### 🚀 Challenges
-
-
-- Show the card Top border based on their category(open, closed), open card will have Green Boder, closed card will have a purple border on top. 
-
-- Loading spinner on data load
-
-- Show active button on changing category names
-
-- Implement Search Functionality and 8 meaningful github commit.  
-
-- Create a readme file and answer this question on your own. Don’t copy-paste from Google or any AI chatbot. 
-    - 1️⃣ What is the difference between var, let, and const?
-    - 2️⃣ What is the spread operator (...)?
-    - 3️⃣ What is the difference between map(), filter(), and forEach()?
-    - 4️⃣ What is an arrow function?
-    - 5️⃣ What are template literals?
-
-
----
-
-## 🛠️ Technology Stack
-
-- **HTML**
-- **CSS** (Vanilla/Tailwind/DaisyUI)
-- **JavaScript** (Vanilla)
-
----
-
-## 🔑 Demo Credentials
-
-```text
-Username: admin
-Password: admin123
-```
-
-
----
-
-### Optional: 
- - No need to show status: Open, Closed styles On modals. 
- - No Need to show icon on labels 
- - No need to apply styles on Priority 
---- 
-
-
-## 📤 What to submit
-
-- **GitHub Repository Link:**
-- **Live Site Link:**
-
----
+Additional Information:
+(01)=>Use backticks(` `) instead quotes.
+(02)=>Allow string interpolation using ${}.
+(03)=>Support multi-line strings without using special characters.
+(04)=>Can include expressions and variables inside strings.
 
 
