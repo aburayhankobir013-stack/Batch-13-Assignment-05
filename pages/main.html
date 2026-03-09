@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      type="text/css"
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="../styles/responsive.css" />
@@ -14,7 +14,7 @@
   </head>
   <body class="font-sans">
     <!-- Main container -->
-    <div class="max-w-[1280px] mx-auto border border-red-500 min-h-screen p-2">
+    <div class="max-w-[1280px] mx-auto min-h-screen p-2">
       <!-- Header -->
       <header
         class="flex flex-col items-center gap-2 sm:flex-row sm:justify-between p-2 rounded-md shadow-[0_0_0.625rem_rgba(0,0,0,0.5)]"
@@ -124,6 +124,19 @@
           <span class="loading loading-bars loading-lg"></span>
           <span class="loading loading-bars loading-xl"></span>
         </div>
+        
+        <!-- Modal container -->
+        <dialog id="my_modal_1" class="modal">
+          <div class="modal-box">
+            <!-- Javascript will push the data -->
+            <div class="modal-action">
+              <form method="dialog">
+                <!-- if there is a button in form, it will close the modal -->
+                <button class="btn bg-violet-700 text-white outline-none hover:bg-violet-900">Close</button>
+              </form>
+            </div>
+          </div>
+        </dialog>
         <!-- Javascript will push the card -->
       </div>
     </div>
